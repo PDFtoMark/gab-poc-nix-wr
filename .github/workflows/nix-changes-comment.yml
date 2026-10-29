@@ -28,8 +28,8 @@ jobs:
       - name: Fetch PR data
         id: pr-data
         run: |
-          pwd; ls -la; find . -maxdepth 3 -print
-          mv requisites-*/* . || true
+          ls -la; find . -maxdepth 2 -print
+          mv requisites-*/* .
           ls
           if grep -nvHE '^/nix/store/[0-9a-df-np-sv-z]{32}-[A-Za-z0-9?=._+-]+$' requisites-*.list; then
             echo 'Unexpected line format in requisites list; refusing to process.' >&2
